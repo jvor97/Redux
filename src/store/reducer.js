@@ -2,6 +2,8 @@ const initialState = {
     counter : 0
 }
 
-const reducer = () => {
-    return state
-}
+const reducer = (state= initialState,action) => {
+    return state;
+};
+
+export default reducer;
