@@ -32,6 +32,18 @@ const reducer = (state = initialState, action) => {
         ...state,
         results : state.results.concat({value: state.counter, id: new Date()})
       };
+    case "DELETE_RES":
+        // let updatedArray = [...state.results];
+        // updatedArray.splice(1,action.index);
+        // in return set state to results : updatedArray;
+      return {
+        ...state,
+        // results : state.results.splice(1,action.index)     NOT 
+        //doing it like above its not inmutable therefore you can do -> above let updatedArray
+        //BEST SOLUTION (with filter and id):
+        results : state.results.filter(result => action.id !== result.id)
+        
+      };
       
   }
   return state;
