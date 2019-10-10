@@ -1,4 +1,4 @@
-import { stat } from "fs";
+import * as actionTypes from './actions';
 
 const initialState = {
   counter: 0,
@@ -7,32 +7,32 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case "INCREMENT":
+    case actionTypes.INCREMENT:
       return {
           ...state,
         counter: state.counter + 1
       };
-    case "DECREMENT":
+    case actionTypes.DECREMENT:
       return {
           ...state,
         counter: state.counter - 1
       };
-    case "ADD":
+    case actionTypes.ADD:
       return {
           ...state,
         counter: state.counter + action.value
       };
-    case "SUBTRACT":
+    case actionTypes.SUBTRACT:
       return {
           ...state,
         counter: state.counter - action.value
       };
-    case "STORE_RES":
+    case actionTypes.STORE_RES:
       return {
         ...state,
         results : state.results.concat({value: state.counter, id: new Date()})
       };
-    case "DELETE_RES":
+    case actionTypes.DELETE_RES:
         // let updatedArray = [...state.results];
         // updatedArray.splice(1,action.index);
         // in return set state to results : updatedArray;
